@@ -1,0 +1,31 @@
+type Query{
+    findAll: [Book]
+    findById(id: ID): Book
+}
+
+type Mutation {
+    save(bookInput: BookInput!): Book
+    update(id:ID, name: String, pageCount: Int): Book
+    delete(id:ID): String
+}
+
+input BookInput{
+    name:String
+    pageCount: Int
+    autherInput: AutherInput
+}
+
+input AutherInput{
+    name: String
+}
+type Book{
+    id:ID
+    name:String
+    pageCount: Int
+    auther: Auther
+}
+
+type Auther{
+    id: ID
+    name: String
+}
